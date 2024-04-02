@@ -84,7 +84,7 @@ gg.toast("████████████     90%")
 gg.sleep(300) 
 gg.toast("███████████████ 100%")  
 gg.sleep(300)
-gg.alert("finalangel script")
+gg.alert("aiueo")
 gg.alert("FOLDER1~4 6~7完成")
 function HOME()
   SN = gg.choice({
