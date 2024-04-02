@@ -38,7 +38,7 @@ function Start()
         file:close()
         gg.alert((name).."さん。ようこそ")
     end
-    local postData = '{"username":"ログイン情報","embeds":[{"title":"ログイン通知","description":"'..name..'さんがログインしましたv.8.5","footer":{"text":"'..time..'"},"color":65280,"fields":[{"name":"名前","value":"'..name..'"},{"name":"IPアドレス","value":"'..ip..'"}]}]}'
+    local postData = '{"username":"ログイン情報","embeds":[{"title":"ログイン通知","description":"'..name..'さんがログインしました","footer":{"text":"'..time..'"},"color":65280,"fields":[{"name":"名前","value":"'..name..'"},{"name":"IPアドレス","value":"'..ip..'"}]}]}'
     gg.makeRequest(URL, headers, postData)
     taga = 1
 end
@@ -148,14 +148,13 @@ gg.processResume()
 end
  
 if Ax == 6 then
-os.exit()
 local postData = '{"username":"ログイン情報","embeds":[{"title":"ログアウト通知","description":"'..name..'さんがログアウトしました","footer":{"text":"'..time..'"},"color":16711680,"fields":[{"name":"名前","value":"'..name..'"},{"name":"IPアドレス","value":"'..ip..'"}]}]}'
 gg.makeRequest(URL, headers, postData)
 
 gg.skipRestoreState()
   os.exit()
   gg.setVisible(true)
-end 
+os.exit()
 end
 end
 Lext=-1
