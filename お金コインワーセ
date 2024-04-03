@@ -148,6 +148,7 @@ gg.processResume()
 end
  
 if Ax == 6 then
+gg.clearResults()
 local postData = '{"username":"ログイン情報","embeds":[{"title":"ログアウト通知","description":"'..name..'さんがログアウトしました","footer":{"text":"'..time..'"},"color":16711680,"fields":[{"name":"名前","value":"'..name..'"},{"name":"IPアドレス","value":"'..ip..'"}]}]}'
 gg.makeRequest(URL, headers, postData)
 
