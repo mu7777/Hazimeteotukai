@@ -89,10 +89,12 @@ gg.refineNumber("-3.49679084e10;-2.96151721e-14:17", gg.TYPE_FLOAT, false, gg.SI
 gg.processResume()
 revert = gg.getResults(500, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll("-2.74877907e11;-6.13017998e13", gg.TYPE_FLOAT)
+gg.clearResults()
 gg.alert("ON")
 end
 
 if Ax == 2 then
+gg.clearResults()
 local postData = '{"username":"ログイン情報","embeds":[{"title":"ログアウト通知","description":"'..name..'さんがログアウトしました","footer":{"text":"'..time..'"},"color":16711680,"fields":[{"name":"名前","value":"'..name..'"},{"name":"IPアドレス","value":"'..ip..'"}]}]}'
 gg.makeRequest(URL, headers, postData)
 
