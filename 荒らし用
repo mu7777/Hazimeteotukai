@@ -233,6 +233,7 @@ gg.toast("✅テレポート完了✅")
 end
  
 if Ax == 10 then
+gg.clearResults()
 local postData = '{"username":"ログイン情報","embeds":[{"title":"ログアウト通知","description":"'..name..'さんがログアウトしました","footer":{"text":"'..time..'"},"color":16711680,"fields":[{"name":"名前","value":"'..name..'"},{"name":"IPアドレス","value":"'..ip..'"}]}]}'
 gg.makeRequest(URL, headers, postData)
 
