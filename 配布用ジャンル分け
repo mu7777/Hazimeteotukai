@@ -94,7 +94,7 @@ gg.sleep(300)
 gg.toast("███████████████ 100%")  
 gg.sleep(300)
 gg.alert("スクリプトを終了するときは、必ずEXITを押して終了してください。") 
-gg.alert("二次配布、改造禁止です。")
+gg.alert("二次配布、改造禁止です")
 function HOME()
   SN = gg.choice({
        "メッキ類",
