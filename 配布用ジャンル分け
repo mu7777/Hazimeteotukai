@@ -21,7 +21,7 @@ end
 file = io.open("namefile.txt", "r")
 function Start()
     if not file then
-        local value = gg.prompt({"(初期登録)あなたの名前を入力してください"}, {nil}, {"text"})
+        local value = gg.prompt({"(初期登録)あなたの名前を入力してください¥nDiscordと同じ名前にしてください。"}, {nil}, {"text"})
 
         if value then
             file = io.open("namefile.txt", "w")
