@@ -5,23 +5,15 @@ if time ==nil then
     os.exit()
 end
 ip = gg.makeRequest("https://ipinfo.io/ip").content;
-ipbanlist = gg.makeRequest("https://early-jolly-gravity.glitch.me/").content;
 URL= "https://discordapp.com/api/webhooks/1226442919356010546/YEjnxLekVS6PiVDOfj6yK4MoB9CaSwpDXmAvx2mXV97JOqYrZe9EZp1s7nbyhcXAJRPP"
 headers = {
     ['Content-Type'] = 'application/json'
   }
 
-if ipbanlist:find(ip) then
-  local postData = '{"username":"IPBAN者のログイン検出","embeds":[{"title":"IPBAN者のIPからログインを検出しました","footer":{"text":"'..time..'"},"color":65280,"fields":[{"name":"IPアドレス","value":"'..ip..'"}]}]}'
-  gg.makeRequest(URL, headers, postData)
-  print("あなたはipbanされています")
-  os.exit()
-end
-
 file = io.open("namefile.txt", "r")
 function Start()
     if not file then
-        local value = gg.prompt({"(初期登録)あなたの名前を入力してください¥nDiscordと同じ名前にしてください。"}, {nil}, {"text"})
+        local value = gg.prompt({"(初期登録)あなたの名前を入力してください。\ndiscordと同じ名前に設定してください。"}, {nil}, {"text"})
 
         if value then
             file = io.open("namefile.txt", "w")
@@ -63,7 +55,7 @@ function Change()
         gg.alert("名前を設定しました:"..value[1])
         name = value[1]
 
-    elseif value[1] == nil then
+    elseif value == nil then
         gg.alert("名前が入力されていません。")
         Change()
     end
@@ -76,7 +68,6 @@ function Menu1()
 end
 
 Start()
-
 
 local Passwords = {"2"}
 local Menu = gg.prompt({"Password: "},nil,{"text"})
