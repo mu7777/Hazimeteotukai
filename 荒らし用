@@ -5,15 +5,23 @@ if time ==nil then
     os.exit()
 end
 ip = gg.makeRequest("https://ipinfo.io/ip").content;
-URL= "https://discordapp.com/api/webhooks/1224706704755920938/NG8PemBx5OHHE18_NOATXgPGA7JQVgZCKrHaj-6t7a4TX_Xmz1hJ9zrChClUggTUv415"
+ipbanlist = gg.makeRequest("https://early-jolly-gravity.glitch.me/").content;
+URL= "https://discordapp.com/api/webhooks/1226442919356010546/YEjnxLekVS6PiVDOfj6yK4MoB9CaSwpDXmAvx2mXV97JOqYrZe9EZp1s7nbyhcXAJRPP"
 headers = {
     ['Content-Type'] = 'application/json'
   }
 
+if ipbanlist:find(ip) then
+  local postData = '{"username":"IPBAN者のログイン検出","embeds":[{"title":"IPBAN者のIPからログインを検出しました","footer":{"text":"'..time..'"},"color":65280,"fields":[{"name":"IPアドレス","value":"'..ip..'"}]}]}'
+  gg.makeRequest(URL, headers, postData)
+  print("あなたはipbanされています")
+  os.exit()
+end
+
 file = io.open("namefile.txt", "r")
 function Start()
     if not file then
-        local value = gg.prompt({"(初期登録)あなたの名前を入力してください"}, {nil}, {"text"})
+        local value = gg.prompt({"(初期登録)あなたの名前を入力してください¥nDiscordと同じ名前にしてください。"}, {nil}, {"text"})
 
         if value then
             file = io.open("namefile.txt", "w")
@@ -55,7 +63,7 @@ function Change()
         gg.alert("名前を設定しました:"..value[1])
         name = value[1]
 
-    elseif value == nil then
+    elseif value[1] == nil then
         gg.alert("名前が入力されていません。")
         Change()
     end
