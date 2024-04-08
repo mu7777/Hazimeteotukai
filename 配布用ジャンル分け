@@ -1,11 +1,12 @@
 gg.alert("ただいま、メンテナンス中です\n再開は未定です。しばらくお待ちください。")
-local Passwords = 、{"123454321"}
+local Passwords = {"123454321"}
 local Menu = gg.prompt({"管理者キー: "},nil,{"text"})
 if not Menu then return end
 for l , I in pairs(Passwords) do
 if Menu[1] == I then A = true end
 end
-if A ~= true then gg.alert("❗パスワードがちがいます❗") return else gg.alert("✅パスワードを解除しました！！✅") end
+if A ~= true then gg.alert("❗パスワードがちがいます❗") return else gg.alert("✅パスワードを解除しました！！✅") 
+end
 
 
 
