@@ -69,7 +69,7 @@ end
 
 Start()
 
-local Passwords = {"2"}
+local Passwords = {"5"}
 local Menu = gg.prompt({"Password: "},nil,{"text"})
 if not Menu then return end
 for l , I in pairs(Passwords) do
@@ -112,7 +112,7 @@ Ax = gg.choice({
 "ゲッタンオフ",
 "強制レッカー",
 "強制レッカー用テレポート",
-"終了"}, nil, "CPM V.4.8.16.8 スクリプト更新日2024 3/24")
+"終了"}, nil, "CPM V.4.8.16.8 スクリプト更新日2024/4/8")
  
 if Ax ~= nil then
  
