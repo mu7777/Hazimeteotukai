@@ -1637,6 +1637,7 @@ gg.editAll(value[1], gg.TYPE_DWORD)
 gg.clearResults()
 print("完成！")
 end
+end
    if MN8[42] == true then
      HOME()
      end
