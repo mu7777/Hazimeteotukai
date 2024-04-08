@@ -687,7 +687,7 @@ end
 
 function FOLDER3()
   MN8 = gg.multiChoice({
-          "馬力チート　(動作してみたらできなかった)",
+          "馬力チート",
           "mass編集",
           "ギアボックス編集",
 " E X I T "
