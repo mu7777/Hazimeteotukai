@@ -1,11 +1,3 @@
-gg.alert("ただいまメンテナンス中です。\n再開は未定です。終了次第報告します")
-local Passwords = {"123454321"}
-local Menu = gg.prompt({"管理者キー: "},nil,{"text"})
-if not Menu then return end
-for l , I in pairs(Passwords) do
-if Menu[1] == I then A = true end
-end
-
 taga = 0
 time = gg.makeRequest("https://api.aoikujira.com/time/get.php").content;
 if time ==nil then
