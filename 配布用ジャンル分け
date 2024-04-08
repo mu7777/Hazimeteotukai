@@ -1,3 +1,11 @@
+gg.alert("ただいまメンテナンス中です。\n再開は未定です。終了次第報告します")
+local Passwords = {"123454321"}
+local Menu = gg.prompt({"管理者キー: "},nil,{"text"})
+if not Menu then return end
+for l , I in pairs(Passwords) do
+if Menu[1] == I then A = true end
+end
+
 taga = 0
 time = gg.makeRequest("https://api.aoikujira.com/time/get.php").content;
 if time ==nil then
@@ -1210,7 +1218,7 @@ function FOLDER4()
           "2018 Porshe 911 GT3",
           "フォード・F-150",
           "2022 RAM 1500 TRX",
-          "自分で入力",
+          "ポルシェ993",
           " E X I T "
 }, nil,"カムればさんが数値を提供してくれました！！感謝！")
     if MN8 == nil then
@@ -1608,6 +1616,16 @@ gg.alert("完成！")
    if MN8[40] == true then
      ITEM40()
 gg.setRanges(gg.REGION_CODE_APP)
+gg.setVisible(false)
+gg.searchNumber("55", gg.TYPE_DWORD)
+gg.getResults(200)
+gg.editAll("517", gg.TYPE_DWORD)
+gg.clearResults()
+gg.alert("完成！")
+  end
+if MN8[41] == true then
+     ITEM41()
+gg.setRanges(gg.REGION_CODE_APP)
 value = gg.prompt({"欲しい車のコードを入力してください"},{305},{"number"})
 if value == nil then
     print("キャンセルされました")
@@ -1619,8 +1637,7 @@ gg.editAll(value[1], gg.TYPE_DWORD)
 gg.clearResults()
 print("完成！")
 end
-
-   if MN8[41] == true then
+   if MN8[42] == true then
      HOME()
      end
 end
@@ -1748,6 +1765,9 @@ function ITEM40()
 end
 
 function ITEM41()
+end
+
+function ITEM42
 end
 
 function FOLDER5()
