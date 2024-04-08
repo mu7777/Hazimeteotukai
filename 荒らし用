@@ -210,10 +210,10 @@ gg.searchNumber("0.04899999872;0.15000000596;-10.0:25", gg.TYPE_FLOAT, false, gg
 gg.refineNumber("-10", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
 revert = gg.getResults(99999, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll("25", gg.TYPE_FLOAT)
-gg.clearResults()
 gg.sleep(100)
 local t = gg.getResults(99999, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.toast("✅完成✅")
+gg.clearResults()
 end
  
 if Ax == 9 then
