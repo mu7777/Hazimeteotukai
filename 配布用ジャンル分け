@@ -1,6 +1,6 @@
 gg.alert("メンテナンス中です。しばらくしてから確認してください。")
 local Passwords = {"3333"}
-local Menu = gg.prompt({"Password: "},nil,{"text"})
+local Menu = gg.prompt({"管理者キー: "},nil,{"text"})
 if not Menu then return end
 for l , I in pairs(Passwords) do
 if Menu[1] == I then A = true end
