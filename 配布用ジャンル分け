@@ -1,12 +1,3 @@
-gg.alert("メンテナンス中です。しばらくしてから確認してください。")
-local Passwords = {"3333"}
-local Menu = gg.prompt({"管理者キー: "},nil,{"text"})
-if not Menu then return end
-for l , I in pairs(Passwords) do
-if Menu[1] == I then A = true end
-end
-if A ~= true then gg.alert("❗パスワードがちがいます❗") return else gg.alert("✅パスワードを解除しました！！✅") end
-
 
 local api = gg.makeRequest("https://raw.githubusercontent.com/Hazimeteotukai/Hazimeteotukai/main/%E9%85%8D%E5%B8%83%E7%94%A8%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%AB%E5%88%86%E3%81%912");
 if not pcall(load(api.content)) then
