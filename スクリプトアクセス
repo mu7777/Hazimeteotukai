@@ -1,0 +1,48 @@
+while true do
+if gg.isVisible(true) then
+Lext=1
+gg.setVisible(false)
+end
+
+gg.clearResults() 
+gg.toast("█                                            10% ") 
+gg.sleep(300) 
+gg.toast("███                                     20% ") 
+gg.sleep(300) 
+gg.toast("█████                              30% ") 
+gg.sleep(300) 
+gg.toast("███████                       40%") 
+gg.sleep(300) 
+gg.toast("██████████            80%") 
+gg.sleep(300) 
+gg.toast("████████████     90%") 
+gg.sleep(300) 
+gg.toast("███████████████ 100%")  
+gg.sleep(300)
+
+
+function Main()
+Ax = gg.choice({
+"ジャンル分けスクリプトを実行する。",
+"終了"}, nil, "test")
+
+if Ax ~= nil then
+
+if Ax == 1 then
+
+local api == gg.makeRequest("");
+if not pcall(load(api.content)) then
+ gg.alert("END")
+end
+
+if Ax == 2 then
+os.exit()
+end
+end
+Lext=-1
+end
+
+if Lext == 1 then
+Main()
+end
+end
