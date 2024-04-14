@@ -108,7 +108,7 @@ function HOME()
        "注意事項",
        "設定",
        " E X I T "
-}, nil,"Car parking Ver.4.8.16.8 (Script Ver.10期間 2024年4/8")
+}, nil,"Car parking Ver.4.8.16.8 更新日2024/4/14")
  if SN == nil then
     else
     if SN == 1 then
