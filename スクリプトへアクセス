@@ -7,7 +7,7 @@ end
 function Main()
 Ax = gg.choice({
 "ジャンル分けスクリプトを実行する。",
-"終了"}, nil, "test")
+"終了"}, nil, "スクリプトを選択")
 
 if Ax ~= nil then
 
