@@ -448,18 +448,21 @@ function FOLDER2()
     else
       if MN8[1] == true then
         HACK26()
+gg.clearResults()
+gg.clearList()
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("-8.56890495e-25;-3.4632364e10;-2.8720048e-14:9", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.searchNumber("-7.92862353e-25;-3.4632364e10;-2.8720048e-14:9", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
 gg.refineNumber("-3.4632364e10;-2.8720048e-14:9", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
 gg.processResume()
 revert = gg.getResults(500, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll("-2.74878956e11;-6.13017998e13", gg.TYPE_FLOAT)
+gg.toast("ON")
 gg.processResume()
-gg.alert("on")
+end
       end
       if MN8[2] == true then
         HACK27()
-gg.alert("BOBOL offは使えないです")
+gg.toast("つかえません")
       end
       if MN8[3] == true then
         HACK28()
