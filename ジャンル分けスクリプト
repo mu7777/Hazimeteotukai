@@ -458,7 +458,6 @@ revert = gg.getResults(500, nil, nil, nil, nil, nil, nil, nil, nil)
 gg.editAll("-2.74878956e11;-6.13017998e13", gg.TYPE_FLOAT)
 gg.toast("ON")
 gg.processResume()
-end
       end
       if MN8[2] == true then
         HACK27()
