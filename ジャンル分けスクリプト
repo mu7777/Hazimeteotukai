@@ -115,7 +115,7 @@ function HOME()
       FOLDER1()
       end
     if SN == 2 then
-      gg.alert("荒らし系は一時閉鎖しています。")
+      FOLDER2()
      end
     if SN == 3 then
       FOLDER3()
