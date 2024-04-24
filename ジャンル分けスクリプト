@@ -2307,9 +2307,31 @@ gg.processResume()
       end
       if MN8[4] == true then
         ITEM54()
+gg.clearResults()
+gg.clearList()
+gg.alert("ロビーで実行")
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("-7.84779043e-25;-3.51692349e10;2.55656968e27:9", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("-7.84779043e-25;-3.51692349e10:9", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.processResume()
+revert = gg.getResults(500, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("-2.74878956e11;-6.13017998e13", gg.TYPE_FLOAT)
+gg.alert("ON")
+gg.processResume()
       end
       if MN8[5] == true then
         ITEM55()
+gg.clearResults()
+gg.clearList()
+gg.alert("ロビーで実行")
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("-8.45156464e-14;-2.87512967e-14;-2.56462248e-29:13", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.refineNumber("-8.45156464e-14;-2.87512967e-14:13", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.processResume()
+revert = gg.getResults(500, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("2.74878956e11;-6.13017998e13", gg.TYPE_FLOAT)
+gg.alert("ON")
+gg.processResume()
       end
       if MN8[6] == true then
         ITEM56()
