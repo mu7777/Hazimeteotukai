@@ -2509,7 +2509,6 @@ BELAJAR[2].value='hC0035FD6'
 BELAJAR[2].flags=4
 gg.setValues(BELAJAR)
 gg.toast("ON")
-end
       end
       if MN8[3] == true then
         WALL3()
