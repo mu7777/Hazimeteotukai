@@ -2472,8 +2472,7 @@ end
 function FOLDER7()
   MN8 = gg.multiChoice({
           "隔離回避",
-          "IDランダム変更",
-          "パトランプ",
+          "課金ホイール解放",
           " E X I T "
 }, nil,"YOUR HEADING")
     if MN8 == nil then
@@ -2494,35 +2493,26 @@ gg.processResume()
 end
       if MN8[2] == true then
         WALL2()
+gg.clearResults()
+gg.clearList()
+gg.setRanges(gg.REGION_CODE_APP)
 LibStart=gg.getRangesList('libil2cpp.so')[2].start
 BELAJAR=nil
 BELAJAR={}
 BELAJAR[1]={}
 BELAJAR[2]={}
-BELAJAR[1].address=LibStart+0x59BD9DC
+BELAJAR[1].address=LibStart+0x3FFEE84
 BELAJAR[1].value='h200080D2'
 BELAJAR[1].flags=4
-BELAJAR[2].address=LibStart+(0x59BD9DC+0x4)
+BELAJAR[2].address=LibStart+(0x3FFEE84+0x4)
 BELAJAR[2].value='hC0035FD6'
 BELAJAR[2].flags=4
 gg.setValues(BELAJAR)
-gg.alert("完了")
+gg.toast("ON")
+end
       end
       if MN8[3] == true then
         WALL3()
-LibStart=gg.getRangesList('libil2cpp.so')[2].start
-BELAJAR=nil
-BELAJAR={}
-BELAJAR[1]={}
-BELAJAR[2]={}
-BELAJAR[1].address=LibStart+0x343FB78
-BELAJAR[1].value='h200080D2'
-BELAJAR[1].flags=4
-BELAJAR[2].address=LibStart+(0x343FB78+0x4)
-BELAJAR[2].value='hC0035FD6'
-BELAJAR[2].flags=4
-gg.setValues(BELAJAR)
-gg.alert("ルーム入って完成")
       end
       if MN8[4] == true then
         WALL4()
