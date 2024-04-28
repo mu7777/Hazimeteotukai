@@ -14,11 +14,37 @@ headers = {
 if ipbanlist:find(ip) then
   local postData = '{"username":"IPBAN者のログイン検出","embeds":[{"title":"IPBAN者のIPからログインを検出しました","footer":{"text":"'..time..'"},"color":65280,"fields":[{"name":"IPアドレス","value":"'..ip..'"}]}]}'
   gg.makeRequest(URL, headers, postData)
+  file = io.open("namefile.txt", "w")
+  file:write("**ERROR**")
+  file:close()
+  file2 = io.open("error.txt", "w")
+  file2:write("ERROR")
+  file2:close()
   print("あなたはipbanされています")
+  os.remove(gg.getFile():match('[^/]+$'))
   os.exit()
 end
 
 file = io.open("namefile.txt", "r")
+file2 = io.open("error.txt", "r")
+if file2 then
+    local postData = '{"username":"IPBAN者の抵抗を検出","embeds":[{"title":"IPBAN者の抵抗を検出しました(type:error.txt)","footer":{"text":"'..time..'"},"color":65280,"fields":[{"name":"IPアドレス","value":"'..ip..'"}]}]}'
+    gg.makeRequest(URL, headers, postData)
+    print("エラーが発生しました")
+    os.remove(gg.getFile():match('[^/]+$'))
+    os.exit()
+elseif file then
+    name = file:read("*all")
+    file:close()
+    if name == "**ERROR**" then
+        local postData = '{"username":"IPBAN者の抵抗を検出","embeds":[{"title":"IPBAN者の抵抗を検出しました(type:namefile.txt)","footer":{"text":"'..time..'"},"color":65280,"fields":[{"name":"IPアドレス","value":"'..ip..'"}]}]}'
+        gg.makeRequest(URL, headers, postData)
+        print("エラーが発生しました")
+        os.remove(gg.getFile():match('[^/]+$'))
+        os.exit()
+    end
+end
+
 function Start()
     if not file then
         local value = gg.prompt({"(初期登録)あなたの名前を入力してください¥nDiscordと同じ名前にしてください。"}, {nil}, {"text"})
@@ -42,6 +68,7 @@ function Start()
                 gg.alert("ファイルを作成できませんでした。")
             end
     else
+        file = io.open("namefile.txt", "r")
         name = file:read("*all")
         file:close()
         gg.alert((name).."さん。ようこそ")
@@ -54,7 +81,7 @@ end
 function Change()
     local value = gg.prompt({"名前を入力してください"}, {nil}, {"text"})
 
-    if value[1] then
+    if value then
         file = io.open("namefile.txt", "w")
         local postData = '{"username":"ログイン情報","embeds":[{"title":"名前変更通知","description":"'..name..'さんが名前を変更しました","footer":{"text":"'..time..'"},"color":255,"fields":[{"name":"元の名前","value":"'..name..'"},{"name":"変更した名前","value":"'..value[1]..'"},{"name":"IPアドレス","value":"'..ip..'"}]}]}'
         gg.makeRequest(URL, headers, postData)
@@ -63,7 +90,7 @@ function Change()
         gg.alert("名前を設定しました:"..value[1])
         name = value[1]
 
-    elseif value[1] == nil then
+    elseif value == nil then
         gg.alert("名前が入力されていません。")
         Change()
     end
