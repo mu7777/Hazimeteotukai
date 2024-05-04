@@ -20,7 +20,7 @@ if ipbanlist:find(ip) then
   file2 = io.open("error.txt", "w")
   file2:write("ERROR")
   file2:close()
-  print("あなたはipbanされています")
+  print("あなたはipbanされています¥n Discordのチケットで問い合わせてください。")
   os.remove(gg.getFile():match('[^/]+$'))
   os.exit()
 end
