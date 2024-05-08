@@ -1,0 +1,47 @@
+-- 暗号化関数
+function encrypt(text, key)
+    local encrypted = ""
+    for i = 1, #text do
+        local byte = text:byte(i)
+        local keyByte = key:byte((i - 1) % #key + 1)
+        encrypted = encrypted .. string.char(byte ~ keyByte)
+    end
+    return encrypted
+end
+
+-- 復号化関数
+function decrypt(encryptedText, key)
+    return encrypt(encryptedText, key) -- 単純に暗号化関数を呼び出す
+end
+
+-- 有効期限を設定（単位：秒）
+local expirationSeconds = 86400  -- 1日
+
+-- 実行時のパスワードを設定
+local password = "your_execution_password"
+
+-- 暗号化するファイル名と鍵
+local filename = "your_file.lua"
+local key = "your_encryption_key"
+
+-- ファイルを読み込んで暗号化
+local file = io.open(filename, "r")
+if file then
+    local plaintext = file:read("*all")
+    file:close()
+    
+    -- 有効期限を現在時刻から算出
+    local expirationTime = os.time() + expirationSeconds
+    
+    -- ファイルに書き込むテキスト（有効期限と実行パスワードを含む）
+    local encryptedText = encrypt("EXPIRATION:" .. expirationTime .. "\nPASSWORD:" .. password .. "\n" .. plaintext, key)
+    
+    -- 暗号化されたテキストを新しいファイルに書き込む
+    local encryptedFile = io.open(filename .. ".encrypted", "w")
+    encryptedFile:write(encryptedText)
+    encryptedFile:close()
+    
+    print("File encrypted successfully.")
+else
+    print("Error: Unable to open file for encryption.")
+end
