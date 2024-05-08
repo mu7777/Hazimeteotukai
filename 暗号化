@@ -1,47 +1,30 @@
--- 暗号化関数
-function encrypt(text, key)
-    local encrypted = ""
-    for i = 1, #text do
-        local byte = text:byte(i)
-        local keyByte = key:byte((i - 1) % #key + 1)
-        encrypted = encrypted .. string.char(byte ~ keyByte)
-    end
-    return encrypted
+local aes = require "resty.aes"
+local str = require "resty.string"
+
+-- 暗号化するための鍵
+local key = "your_secret_key_here"
+
+-- テキストを暗号化する関数
+function encrypt(text)
+    local aes_128_cbc_md5 = assert(aes:new(key, nil, aes.cipher(128, "cbc"), {iv = "1234567890123456"}))
+    local encrypted = aes_128_cbc_md5:encrypt(text)
+    return str.to_hex(encrypted)
 end
 
--- 復号化関数
-function decrypt(encryptedText, key)
-    return encrypt(encryptedText, key) -- 単純に暗号化関数を呼び出す
+-- 暗号化されたテキストを復号化する関数
+function decrypt(encrypted_text)
+    local aes_128_cbc_md5 = assert(aes:new(key, nil, aes.cipher(128, "cbc"), {iv = "1234567890123456"}))
+    encrypted_text = str.from_hex(encrypted_text)
+    local decrypted = aes_128_cbc_md5:decrypt(encrypted_text)
+    return decrypted
 end
 
--- 有効期限を設定（単位：秒）
-local expirationSeconds = 86400  -- 1日
+-- 例：テキストの暗号化と復号化
+local plain_text = "Your Lua code here"
+print("Plain Text: ", plain_text)
 
--- 実行時のパスワードを設定
-local password = "your_execution_password"
+local encrypted_text = encrypt(plain_text)
+print("Encrypted Text: ", encrypted_text)
 
--- 暗号化するファイル名と鍵
-local filename = "your_file.lua"
-local key = "your_encryption_key"
-
--- ファイルを読み込んで暗号化
-local file = io.open(filename, "r")
-if file then
-    local plaintext = file:read("*all")
-    file:close()
-    
-    -- 有効期限を現在時刻から算出
-    local expirationTime = os.time() + expirationSeconds
-    
-    -- ファイルに書き込むテキスト（有効期限と実行パスワードを含む）
-    local encryptedText = encrypt("EXPIRATION:" .. expirationTime .. "\nPASSWORD:" .. password .. "\n" .. plaintext, key)
-    
-    -- 暗号化されたテキストを新しいファイルに書き込む
-    local encryptedFile = io.open(filename .. ".encrypted", "w")
-    encryptedFile:write(encryptedText)
-    encryptedFile:close()
-    
-    print("File encrypted successfully.")
-else
-    print("Error: Unable to open file for encryption.")
-end
+local decrypted_text = decrypt(encrypted_text)
+print("Decrypted Text: ", decrypted_text)
