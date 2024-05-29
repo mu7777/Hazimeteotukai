@@ -2316,7 +2316,16 @@ gg.processResume()
       end
       if MN8[3] == true then
         ITEM53()
-gg.alert("メンテナンス中")
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("-1.27424102E34;-2.87131023E-14;-1.25306265E-24:9", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.processResume()
+gg.refineNumber("-1.27424102E34;-2.87131023E-14", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+gg.processResume()
+revert = gg.getResults(9999, nil, nil, nil, nil, nil, nil, nil, nil)
+gg.editAll("-2.74878956E11;-6.13017998E13", gg.TYPE_FLOAT)
+gg.processResume()
+gg.clearResults()
+gg.alert("level1に入ったらロビーに戻ってください。")
       end
       if MN8[4] == true then
         ITEM54()
