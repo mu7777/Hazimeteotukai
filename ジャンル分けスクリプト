@@ -155,7 +155,6 @@ function HOME()
      end
     if SN == 6 then
        FOLDER6()
-
       end
     if SN == 7 then
        FOLDER7()
@@ -2286,7 +2285,7 @@ function FOLDER6()
           "お金をフリーズ",
           "コインをフリーズ",
           " E X I T "
-}, nil,"YOUR HEADING")
+}, nil,"おちんこ")
     if MN8 == nil then
     else
       if MN8[1] == true then
@@ -2320,28 +2319,7 @@ gg.processResume()
       end
       if MN8[3] == true then
         ITEM53()
-gg.clearResults()
-gg.clearList()
-gg.alert("ロビーで実行")
-99. setRanges (gg.REGION_CODE_APP)
-gg.searchNumber("-1.27424102E34;-2.87131023E-
-14;-1.25306265E-24:9", gg. TYPE _FLOAT, false, gg. SIGN EQUAL, 0, -1, 0)
-99. processResume ()
-gg.refineNumber("-1.27424102E34;-2.87131023E-
-14"
-, 99. TYPE_FLOAT,
-false, gg.SIGN
-LEQUAL, 0,
--1,0）
-99. processResume ()
-revert = 9g. getResults(9999, nil, nil, nil,
-nil, nil, nil,
-nil, nil)
-gg.editAll("-2.74878956E11;-6.13017998Е13",
-99. TYPE FLOAT)
-99. processResume (
-99. clearResults ()
-gg.alert （"level.1をクリア後にロビーに戻って"）
+gg.alert("メンテナンス中")
       end
       if MN8[4] == true then
         ITEM54()
