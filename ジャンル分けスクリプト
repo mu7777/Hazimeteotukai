@@ -135,7 +135,7 @@ function HOME()
        "注意事項",
        "設定",
        " E X I T "
-}, nil,"Car parking Ver.4.8.17.6 更新日2024/4/29")
+}, nil,"Car parking Ver.4.8.18.3 更新日2024/06/07")
  if SN == nil then
     else
     if SN == 1 then
@@ -1257,7 +1257,7 @@ function FOLDER4()
           "2022 RAM 1500 TRX",
           "ポルシェ993",
           " E X I T "
-}, nil,"カムればさんが数値を提供してくれました！！感謝！")
+}, nil,"最新バージョンで出てきた車を出現することはできません。")
     if MN8 == nil then
     else
       if MN8[1] == true then
@@ -1826,13 +1826,6 @@ function FOLDER5()
           "😎キャンパー角 85😎",
           "😎キャンパー角 90😎",
           "😎キャンパー角 95😎",
-          "YOUR HACK",
-          "YOUR HACK",
-          "YOUR HACK",
-          "YOUR HACK",
-          "YOUR HACK",
-          "YOUR HACK",
-          "YOUR HACK",
           " E X I T "
 }, nil,"鬼キャン系　あらかじめキャンパーを10度にしてから実行してください")
     if MN8 == nil then
@@ -2279,7 +2272,7 @@ end
 
 function FOLDER6()
   MN8 = gg.multiChoice({
-          "お金チート",
+          "お金チート(4.8.18.3は出来ません。)"
           "コインチート",
           "ワールドセールbypass",
           "お金をフリーズ",
