@@ -7,7 +7,7 @@ function checkMaintenance()
         return false
     end
     local content = response.content
-    return content:match("1")
+    return content:match("0")
 end
 
 -- Discord Webhookにエラーメッセージを送信する関数
