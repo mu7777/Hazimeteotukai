@@ -33,7 +33,7 @@ while true do
         local Ax = gg.choice({
             "ジャンル分けスクリプトを実行する。",
             "終了"
-        }, nil, "スクリプトアクセスv.1 (更新日2024/06/07)")
+        }, nil, "スクリプトアクセスv.1 (更新日20249)")
 
         if Ax ~= nil then
             if Ax == 1 then
@@ -45,15 +45,21 @@ while true do
                 else
                     gg.alert("スクリプトを正常に取得しました。")
                 end
-                local success, result = pcall(load(api.content))
+                local success, loadedScript = pcall(load(api.content))
                 if not success then
-                    local errorMessage = string.format("スクリプトの読み込み中にエラーが発生しました: %s", result)
+                    local errorMessage = string.format("スクリプトの読み込み中にエラーが発生しました: %s", loadedScript)
                     gg.alert(errorMessage)
                     sendDiscordError(errorMessage)
                     os.exit()
                 else
                     -- 成功した場合、スクリプトを実行
-                    result()
+                    local scriptSuccess, scriptError = pcall(loadedScript)
+                    if not scriptSuccess then
+                        local errorMessage = string.format("スクリプトの実行中にエラーが発生しました: %s", scriptError)
+                        gg.alert(errorMessage)
+                        sendDiscordError(errorMessage)
+                        os.exit()
+                    end
                 end
             end
 
