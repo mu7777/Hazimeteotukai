@@ -718,6 +718,8 @@ function FOLDER3()
           "馬力チート",
           "mass編集",
           "ギアボックス編集",
+          "ルーム内ロケットオン",
+          "ルーム内ロケットオフ",
 " E X I T "
 }, nil,"HP")
     if MN8 == nil then
@@ -1074,9 +1076,36 @@ gg.processResume()
       end
       if MN8[4] == true then
         HACK54()
+gg.alert("チーパーニキが提供してくれました。")
+    gg.setRanges(gg.REGION_ANONYMOUS)
+    gg.processResume()
+    gg.clearResults()
+    gg.searchNumber("2500", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+    revert = gg.getResults(100, nil, nil, nil, nil, nil, nil, nil, nil)
+    gg.editAll("-100000", gg.TYPE_FLOAT)
+ 
+    gg.setRanges(gg.REGION_CODE_APP)   
+    gg.clearResults()
+    gg.searchNumber("1.1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+    revert = gg.getResults(100, nil, nil, nil, nil, nil, nil, nil, nil)
+    gg.editAll("4", gg.TYPE_FLOAT)
+    gg.alert("レース開始してください‼️")
       end
       if MN8[5] == true then
         HACK55()
+      gg.setRanges(gg.REGION_ANONYMOUS)
+    gg.processResume()
+    gg.clearResults()
+    gg.searchNumber("-100000", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+    revert = gg.getResults(100, nil, nil, nil, nil, nil, nil, nil, nil)
+    gg.editAll("2500", gg.TYPE_FLOAT)
+ 
+    gg.setRanges(gg.REGION_CODE_APP)   
+    gg.clearResults()
+    gg.searchNumber("4", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1, 0)
+    revert = gg.getResults(100, nil, nil, nil, nil, nil, nil, nil, nil)
+    gg.editAll("1.1", gg.TYPE_FLOAT)
+    gg.alert("レース終了")        
       end
       if MN8[6] == true then
         HACK56()
