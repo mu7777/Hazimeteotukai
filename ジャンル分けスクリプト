@@ -1,4 +1,4 @@
- taga = 0
+taga = 0
 time = gg.makeRequest("https://api.aoikujira.com/time/get.php").content;
 if time ==nil then
     print("スクリプトによるインターネットへのアクセスを許可してください")
@@ -2272,7 +2272,7 @@ end
 
 function FOLDER6()
   MN8 = gg.multiChoice({
-          "お金チート(4.8.18.3は出来ません。)"
+          "お金チート(4.8.18.3は出来ません。)",
           "コインチート",
           "ワールドセールbypass",
           "お金をフリーズ",
