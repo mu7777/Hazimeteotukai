@@ -44,23 +44,15 @@ function Main()
             end
 
             if Ax == 2 then
-                api = gg.makeRequest("https://raw.githubusercontent.com/Hazimeteotukai/Hazimeteotukai/main/スクリプトへアクセス2")
-                if api == nil or api.content == nil then
-                    gg.alert("スクリプトを取得できませんでした。")
-                    sendDiscordError("スクリプトを取得できませんでした。")
-                    os.exit()
-                else
-                    gg.alert("スクリプトを正常に取得しました。")
-                end
-                success, loadedScript = pcall(load(api.content))
-                if success == false then
-                    local errorMessage = string.format("スクリプトの読み込み中にエラーが発生しました: %s", loadedScript)
-                    --gg.alert(errorMessage)
-                    sendDiscordError(errorMessage)
-                    os.exit()
-                end
-            end
+local http = require("http")
 
+local url = ""
+
+http.request("GET", url):next(function(response)
+    print(response.body)
+end):catch(function(err)
+    print("エラー:", err)
+end)
             if Ax == 3 then
                 os.exit()
             end
