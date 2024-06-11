@@ -20,9 +20,8 @@ function Main()
     if maintenanceFlag == 0 then
         local Ax = gg.choice({
             "ジャンル分けスクリプトを実行する。",
-            "TEST SCRIPT",
             "終了"
-        }, nil, "スクリプトアクセス(更新日2024/06/09)")
+        }, nil, "スクリプトアクセス(更新日2024/06/11)")
 
         if Ax ~= nil then
             if Ax == 1 then
@@ -44,16 +43,6 @@ function Main()
             end
 
             if Ax == 2 then
-local http = require("https")
-
-local url = "https://raw.githubusercontent.com/Hazimeteotukai/Hazimeteotukai/main/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%B8%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B92"
-
-http.request("GET", url):next(function(response)
-    print(response.body)
-end):catch(function(err)
-    print("エラー:", err)
-end)
-            if Ax == 3 then
                 os.exit()
             end
             Lext = -1
