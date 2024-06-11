@@ -44,7 +44,22 @@ function Main()
             end
 
             if Ax ==2 then
-
+                api = gg.makeRequest("")
+                if api == nil or api.content == nil then
+                    gg.alert("スクリプトを取得できませんでした。")
+                    sendDiscordError("スクリプトを取得できませんでした。")
+                    os.exit()
+                else
+                    gg.alert("スクリプトを正常に取得しました。")
+                end
+                success, loadedScript = pcall(load(api.content))
+                if success == false then
+                    local errorMessage = string.format("スクリプトの読み込み中にエラーが発生しました: %s", loadedScript)
+                    --gg.alert(errorMessage)
+                    sendDiscordError(errorMessage)
+                    os.exit()
+                end
+            end
 end
 
             if Ax == 3 then
