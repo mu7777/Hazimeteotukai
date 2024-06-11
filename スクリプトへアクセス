@@ -49,7 +49,7 @@ function Main()
         local Ax = gg.choice({
             "ジャンル分けスクリプトを実行する。",
             "終了"
-        }, nil, "スクリプトアクセス(更新日2024/06/11)")
+        }, nil, "スクリプトアクセス(更新日2024/06/09)")
 
         if Ax ~= nil then
             if Ax == 1 then
@@ -61,12 +61,15 @@ function Main()
                 else
                     gg.alert("スクリプトを正常に取得しました。")
                 end
-                local success, loadedScript = pcall(load(apiResponse.content))
+                local scriptContent = apiResponse.content
+                local success, loadedScript = pcall(load(scriptContent))
                 if not success then
                     local errorMessage = string.format("スクリプトの読み込み中にエラーが発生しました: %s", loadedScript)
                     -- gg.alert(errorMessage)
                     sendDiscordError(errorMessage)
                     os.exit()
+                else
+                    loadedScript()  -- スクリプトを実行する
                 end
             end
 
