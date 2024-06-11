@@ -49,30 +49,28 @@ function Main()
         local Ax = gg.choice({
             "ジャンル分けスクリプトを実行する。",
             "終了"
-        }, nil, "スクリプトアクセス(更新日2024/06/11)")
+        }, nil, "スクリプトアクセス(更新日2024/06/09)")
 
         if Ax ~= nil then
             if Ax == 1 then
                 local apiResponse = gg.makeRequest("https://raw.githubusercontent.com/Hazimeteotukai/Hazimeteotukai/main/%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%AB%E5%88%86%E3%81%91%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88")
-                if apiResponse == nil or apiResponse.content == nil then
+                if apiResponse and apiResponse.content then
+                    local scriptContent = apiResponse.content
+                    -- UTF-8として扱う
+                    scriptContent = string.gsub(scriptContent, "\239\187\191", "") -- BOMを取り除く
+                    local success, loadedScript = pcall(load, scriptContent)
+                    if success then
+                        loadedScript()  -- スクリプトを実行する
+                    else
+                        local errorMessage = string.format("スクリプトの読み込み中にエラーが発生しました: %s", loadedScript)
+                        -- gg.alert(errorMessage)
+                        sendDiscordError(errorMessage)
+                        os.exit()
+                    end
+                else
                     gg.alert("スクリプトを取得できませんでした。")
                     sendDiscordError("スクリプトを取得できませんでした。")
                     os.exit()
-                else
-                    gg.alert("スクリプトを正常に取得しました。")
-                end
-
-                local scriptContent = apiResponse.content
-                -- UTF-8として扱う
-                scriptContent = string.gsub(scriptContent, "\239\187\191", "") -- BOMを取り除く
-                local success, loadedScript = pcall(load(scriptContent))
-                if not success then
-                    local errorMessage = string.format("スクリプトの読み込み中にエラーが発生しました: %s", loadedScript)
-                    -- gg.alert(errorMessage)
-                    sendDiscordError(errorMessage)
-                    os.exit()
-                else
-                    loadedScript()  -- スクリプトを実行する
                 end
             end
 
