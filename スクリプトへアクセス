@@ -1,6 +1,21 @@
+-- Wi-Fi接続をチェックする関数
+function isWifiConnected()
+    os.execute('ping -c 1 8.8.8.8 > /sdcard/gg_wifi_check.txt')
+    local file = io.open('/sdcard/gg_wifi_check.txt', 'r')
+    local result = file:read('*all')
+    file:close()
+    os.remove('/sdcard/gg_wifi_check.txt')
+    
+    if string.find(result, '1 received') then
+        return true
+    else
+        return false
+    end
+end
+
 -- 数字の設定（ここに0または1を設定してください）
 maintenanceFlag = 0  -- 1をメンテナンスモード、0を通常モードとして設定
-maintenanceFlag=gg.makeRequest("https://raw.githubusercontent.com/Hazimeteotukai/Hazimeteotukai/main/test.txt").content
+maintenanceFlag = gg.makeRequest("https://raw.githubusercontent.com/Hazimeteotukai/Hazimeteotukai/main/test.txt").content
 
 -- Discord Webhookにエラーメッセージを送信する関数
 function sendDiscordError(message)
@@ -10,6 +25,13 @@ function sendDiscordError(message)
 end
 
 function Main()
+    -- Wi-Fi接続をチェックし、接続されていない場合は警告を表示して終了する
+    if not isWifiConnected() then
+        gg.alert('Wi-Fi接続がありません。スクリプトを終了します。')
+        sendDiscordError('Wi-Fi接続がありません。スクリプトを終了します。')
+        os.exit()
+    end
+
     -- 数字が1の場合はメンテナンスメッセージを表示して終了
     if maintenanceFlag == 1 then
         gg.alert("メンテナンス中です。しばらくお待ちください。")
@@ -36,7 +58,7 @@ function Main()
                 success, loadedScript = pcall(load(api.content))
                 if success == false then
                     local errorMessage = string.format("スクリプトの読み込み中にエラーが発生しました: %s", loadedScript)
-                    --gg.alert(errorMessage)
+                    -- gg.alert(errorMessage)
                     sendDiscordError(errorMessage)
                     os.exit()
                 end
