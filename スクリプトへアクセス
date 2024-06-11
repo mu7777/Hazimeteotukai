@@ -44,9 +44,9 @@ function Main()
             end
 
             if Ax == 2 then
-local http = require("http")
+local http = require("https")
 
-local url = ""
+local url = "https://raw.githubusercontent.com/Hazimeteotukai/Hazimeteotukai/main/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%B8%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B92"
 
 http.request("GET", url):next(function(response)
     print(response.body)
