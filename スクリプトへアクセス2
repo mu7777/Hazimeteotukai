@@ -44,7 +44,7 @@ function Main()
             end
 
             if Ax ==2 then
-                api = gg.makeRequest("")
+                api = gg.makeRequest("https://raw.githubusercontent.com/Hazimeteotukai/Hazimeteotukai/main/スクリプトへアクセス")
                 if api == nil or api.content == nil then
                     gg.alert("スクリプトを取得できませんでした。")
                     sendDiscordError("スクリプトを取得できませんでした。")
